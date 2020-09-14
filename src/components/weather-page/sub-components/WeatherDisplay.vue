@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="weather-display">
         <h3>Sunshine</h3>
     </div>
 </template>
@@ -8,10 +8,17 @@
 export default {
     name:"WeatherDisplay",
     components: {},
-    data: () => {
-    }
+    data: () => ({
+    })
 }
 </script>
 
 <style scoped>
+.weather-display {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: white;
+}
 </style>
