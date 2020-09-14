@@ -12,6 +12,8 @@
 </template>
 <script>
 import cities from 'cities.json'
+import axios from 'axios'
+import { bus } from '../../../main'
 
 export default {
     name: "LocationInputBox",
@@ -22,10 +24,7 @@ export default {
     }),
     computed: {
         matched_cities() {
-            let result = this.get_matched_cities(this.location)
-            console.log(result)
-            console.log(location)
-            return result
+            return this.get_matched_cities(this.location)
         }
     },
     methods: {
@@ -41,9 +40,24 @@ export default {
             }
             return result
         },
-        pick_city(city) {
+        async pick_city(city) {
             this.location = city.name + ", " + city.country
-        }
+            let weather = await this.get_weather(city)
+            console.log(weather)
+            bus.$emit('update_weather', weather)
+        },
+        async get_weather(city) {
+            let url = this.api_url(city)
+            const response = await axios({
+                url:url, method: 'get'
+            })
+            let weather_data = response.data.data[0]
+            return weather_data
+        },
+        api_url(city) {
+            // register your own api account at https://www.weatherbit.io/api
+            return `https://api.weatherbit.io/v2.0/current?city=${city.name},${city.country}&key=25ce52ab3bce404698a80095175694ba`
+        },
     }
 }
 </script>
