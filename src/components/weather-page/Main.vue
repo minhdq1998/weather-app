@@ -1,5 +1,6 @@
 <template>
     <div class="weather-page">
+        <Clock />
         <div class="centralize-content">
             <WeatherDisplay />
             <LocationInputBox />
@@ -8,12 +9,14 @@
 </template>
 <script>
 
+import Clock from './sub-components/Clock'
 import LocationInputBox from './sub-components/LocationInputBox'
 import WeatherDisplay from './sub-components/WeatherDisplay'
 
 export default {
   name: 'WeatherPage',
   components: {
+      Clock,
       LocationInputBox,
       WeatherDisplay
   }
@@ -28,7 +31,7 @@ export default {
 .centralize-content {
     position: absolute;
     left: 50%;
-    top: 45%;
+    top: 40%;
     transform: translate(-50%, -50%);
     width: 60%;
 }
