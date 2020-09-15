@@ -1,11 +1,11 @@
 <template>
-    <div class="weather-page">
+    <section class="weather-page" id="weather">
         <Clock />
         <div class="centralize-content">
             <WeatherDisplay />
             <LocationInputBox />
         </div>
-    </div>
+    </section>
 </template>
 <script>
 
