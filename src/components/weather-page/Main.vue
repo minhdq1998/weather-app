@@ -1,6 +1,6 @@
 <template>
     <section class="weather-page" id="weather">
-        <Clock />
+        <Header header="Weather Forecast" color="#32444b" />
         <div class="centralize-content">
             <WeatherDisplay />
             <LocationInputBox />
@@ -9,25 +9,27 @@
 </template>
 <script>
 
-import Clock from './sub-components/Clock'
+import Header from './../common/Header'
 import LocationInputBox from './sub-components/LocationInputBox'
 import WeatherDisplay from './sub-components/WeatherDisplay'
 
 export default {
   name: 'WeatherPage',
   components: {
-      Clock,
       LocationInputBox,
-      WeatherDisplay
+      WeatherDisplay,
+      Header
   }
 }
 </script>
 <style scoped>
+
 .weather-page {
     height: 100vh;
-    background-color: #32444b;
+    background-color: #87CEEB;
     position: relative;
 }
+
 .centralize-content {
     position: absolute;
     left: 50%;
