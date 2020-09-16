@@ -1,7 +1,7 @@
 <template>
     <section id="timer">
         <Header header="Pomodoro Timer" color="#87CEEB" />
-        <Timer />
+        <Timer :mins=0.5 />
     </section>
 </template>
 

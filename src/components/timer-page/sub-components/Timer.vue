@@ -2,7 +2,7 @@
     <div class="centralize-content">
         <h3>{{ this.mins }} Minutes</h3>
         <NesProgressBar class="progress" :max='mins_to_secs(mins)' :value='countdown'  />
-        <NesButton class="timer-button" @click="start_count_down()" success>Start</NesButton>
+        <NesButton class="timer-button" @click="start_count_down(true)" success>Start</NesButton>
         <NesButton class="timer-button" @click="stop_count_down()" error>Stop</NesButton>
         <NesButton class="timer-button" @click="reset_count_down()" primary>Reset</NesButton>
     </div>
@@ -25,7 +25,7 @@ export default {
     },
     data: () => ({
         countdown: 0,
-        stop_request: false
+        countdown_run: false
     }),
     mounted() {
         this.countdown = this.mins_to_secs(this.mins)
@@ -34,22 +34,26 @@ export default {
         mins_to_secs(mins) {
             return mins * 60
         },
-        start_count_down() {
-            if (this.countdown > 0 && !this.stop_request) {
+        start_count_down(initial = false) {
+            if ((this.countdown > 0 && this.countdown_run) || 
+                (this.countdown > 0 && initial)) {
+                this.countdown_run = true
                 this.countdown -= 1
                 setTimeout(() => { this.start_count_down() }, 1000)
-            } else {
-                this.stop_request = false
-            }
+            } else if (this.countdown == 0) this.play_audio()
         },
         stop_count_down() {
-            this.stop_request = true
+            this.countdown_run = false
             console.log('stop')
         },
         reset_count_down() {
-            this.stop_request = true
+            this.countdown_run = false
             this.countdown = this.mins_to_secs(this.mins)
             console.log('reset')
+        },
+        play_audio() {
+            let audio = new Audio(require('@/assets/alarm.mp3'))
+            audio.play()
         }
     }
 }
