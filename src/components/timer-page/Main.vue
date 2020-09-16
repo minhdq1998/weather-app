@@ -5,9 +5,9 @@
             <NesButton class="timer-mode-button" @click="change_mode('pomodoro')"   :primary="is_active('pomodoro')">Pomodoro</NesButton>
             <NesButton class="timer-mode-button" @click="change_mode('shortbreak')" :primary="is_active('shortbreak')">Short Break</NesButton>
             <NesButton class="timer-mode-button" @click="change_mode('longbreak')"  :primary="is_active('longbreak')">Long Break</NesButton>
-            <Timer :mins=25 :active="mode == 'pomodoro'" />
-            <Timer :mins=5  :active="mode == 'shortbreak'"/>
-            <Timer :mins=10 :active="mode == 'longbreak'"/>
+            <Timer :mins=25 :active="mode == 'pomodoro'"   />
+            <Timer :mins=5  :active="mode == 'shortbreak'" />
+            <Timer :mins=10 :active="mode == 'longbreak'"  />
         </div>
     </section>
 </template>

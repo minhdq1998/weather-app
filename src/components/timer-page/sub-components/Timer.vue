@@ -1,11 +1,11 @@
 <template>
     <div :style="visibility()">
         <NesContainer rounded dark>
-        <h3>{{ this.mins }} Minutes{{ countdown_text() }} </h3>
-        <NesProgressBar class="progress" :max='mins_to_secs(mins)' :value='countdown' warning />
-        <NesButton class="timer-button" @click="start_count_down(true)" success>Start</NesButton>
-        <NesButton class="timer-button" @click="stop_count_down()" error>Stop</NesButton>
-        <NesButton class="timer-button" @click="reset_count_down()" primary>Reset</NesButton>
+            <h3>{{ this.mins }} Minutes{{ countdown_text() }} </h3>
+            <NesProgressBar class="progress" :max='mins_to_secs(mins)' :value='countdown' warning />
+            <NesButton class="timer-button" @click="start_count_down(true)" success>Start</NesButton>
+            <NesButton class="timer-button" @click="stop_count_down()" error>Stop</NesButton>
+            <NesButton class="timer-button" @click="reset_count_down()" primary>Reset</NesButton>
         </NesContainer>
     </div>
 </template>
@@ -79,6 +79,6 @@ export default {
 }
 
 .timer-button {
-    margin: 20px;
+    margin: 20px !important;
 }
 </style>
