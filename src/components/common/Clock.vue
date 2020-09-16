@@ -42,5 +42,6 @@ export default {
     top:10px;
     right: 10px;
     color: white;
+    z-index: 10;
 }
 </style>

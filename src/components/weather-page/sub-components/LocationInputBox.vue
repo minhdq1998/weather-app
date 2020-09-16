@@ -64,6 +64,7 @@ export default {
 <style scoped>
 .location-input {
     position: relative;
+    color: #2c3e50;
 }
 
 .location-dropdown {
@@ -87,5 +88,6 @@ input {
     height: 100%;
     width: 100%;
     border: 4px solid black;
+    color: #2c3e50;
 }
 </style>
