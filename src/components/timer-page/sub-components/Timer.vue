@@ -1,27 +1,31 @@
 <template>
-    <div class="centralize-content">
-        <h3>{{ this.mins }} Minutes</h3>
-        <NesProgressBar class="progress" :max='mins_to_secs(mins)' :value='countdown'  />
+    <div :style="visibility()">
+        <NesContainer rounded dark>
+        <h3>{{ this.mins }} Minutes{{ countdown_text() }} </h3>
+        <NesProgressBar class="progress" :max='mins_to_secs(mins)' :value='countdown' warning />
         <NesButton class="timer-button" @click="start_count_down(true)" success>Start</NesButton>
         <NesButton class="timer-button" @click="stop_count_down()" error>Stop</NesButton>
         <NesButton class="timer-button" @click="reset_count_down()" primary>Reset</NesButton>
+        </NesContainer>
     </div>
 </template>
 
 <script>
-import { NesProgressBar, NesButton } from 'vuenes.css'
+import { NesProgressBar, NesButton, NesContainer } from 'vuenes.css'
 
 export default {
     name: "Timer",
     components: {
         NesProgressBar,
-        NesButton
+        NesButton,
+        NesContainer
     },
     props: {
         mins:{
             type: Number,
             default: 0.5
-        }
+        },
+        active:Boolean
     },
     data: () => ({
         countdown: 0,
@@ -54,21 +58,21 @@ export default {
         play_audio() {
             let audio = new Audio(require('@/assets/alarm.mp3'))
             audio.play()
+        },
+        visibility() {
+            let display_mode = this.active ? 'block' : 'none'
+            return {
+                'display': display_mode
+            }
+        },
+        countdown_text() {
+            return this.countdown_run ? '...':''
         }
     }
 }
 </script>
 
 <style scoped>
-
-.centralize-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 600px;
-}
 
 .progress {
     height: 30px;
