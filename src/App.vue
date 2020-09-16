@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <Clock />
-    <WeatherPage/>
-    <TimerPage/>
+    <div class="container">
+      <Observer/>
+      <MenuPage/>
+      <WeatherPage/>
+      <TimerPage/>
+    </div>
     <div class="paging-but">
         <div><NesButton @click="move_to('#weather')">↑</NesButton></div>
         <div><NesButton @click="move_to('#timer')">↓</NesButton></div>
@@ -11,29 +15,34 @@
 </template>
 
 <script>
-import Clock from './components/common/Clock'
+import { default as MenuPage } from './components/menu-page/Main'
 import { default as WeatherPage } from './components/weather-page/Main';
 import { default as TimerPage } from './components/timer-page/Main';
+
+import Clock from './components/common/Clock'
+import Observer from './components/common/Observer'
 import { NesButton } from 'vuenes.css'
+
+import pagingMixin from './mixins/pagingMixn'
+import { bus } from './main'
 
 export default {
   name: 'App',
   components: {
+    MenuPage,
     WeatherPage,
     TimerPage,
     NesButton,
-    Clock
+    Clock,
+    Observer
   },
+  mixins: [pagingMixin],
   data: () => ({
-    default_url: ""
+    default_url: "",
+    page: "#menu"
   }),
   created() {
-    this.default_url = window.location.origin + window.location.pathname
-  },
-  methods: {
-    move_to(id) {
-      window.location.href = this.default_url + id
-    }
+    bus.$on('switch_page',(id) => this.page="#"+id )
   }
 }
 </script>
