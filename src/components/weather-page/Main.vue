@@ -36,5 +36,6 @@ export default {
     top: 40%;
     transform: translate(-50%, -50%);
     width: 60%;
+    max-width: 600px;
 }
 </style>

@@ -28,7 +28,7 @@ export default {
     default_url: ""
   }),
   created() {
-    this.default_url = window.location.href
+    this.default_url = window.location.origin
   },
   methods: {
     move_to(id) {
