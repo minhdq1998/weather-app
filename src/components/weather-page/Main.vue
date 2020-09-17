@@ -1,6 +1,6 @@
 <template>
     <section class="weather-page" id="weather">
-        <Header header="Weather Forecast" color="#32444b" />
+        <Header header="Weather" color="#32444b" />
         <CentralizedContainer>
             <WeatherDisplay />
             <LocationInputBox />

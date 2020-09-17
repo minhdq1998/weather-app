@@ -22,4 +22,14 @@ h2 {
     padding-top: 120px;
 }
 
+@media (max-height: 768px)  and (max-width: 500px) {
+    h2 {
+        position: absolute;
+        padding-top:0px;
+        top: 5px;
+        left: 5px;
+        font-size: 13px;
+    }
+}
+
 </style>

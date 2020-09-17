@@ -1,6 +1,6 @@
 <template>
     <section id="timer">
-        <Header header="Pomodoro Timer" color="#87CEEB" />
+        <Header header="Timer" color="#87CEEB" />
         <CentralizedContainer>
             <NesButton class="timer-mode-button" @click="change_mode('pomodoro')"   :primary="is_active('pomodoro')">Pomodoro</NesButton>
             <NesButton class="timer-mode-button" @click="change_mode('shortbreak')" :primary="is_active('shortbreak')">Short Break</NesButton>
