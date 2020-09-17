@@ -3,9 +3,9 @@
         <Header header="Menu" />
         <div class="centralize-content">
             <NesContainer title="Menu" center>
-                <div><NesButton class="menu-button" @click="move_to('#about')">About</NesButton></div>
-                <div><NesButton class="menu-button" @click="move_to('#weather')">Weather</NesButton></div>
-                <div><NesButton class="menu-button" @click="move_to('#timer')">Timer</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('about')">About</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('weather')">Weather</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('timer')">Timer</NesButton></div>
             </NesContainer>
         </div>
     </section>
