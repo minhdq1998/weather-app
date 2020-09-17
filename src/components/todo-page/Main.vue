@@ -12,7 +12,6 @@
             <NesButton class="todo-item">Excercise</NesButton>
             <NesButton class="todo-item">Deploy</NesButton>
             <NesButton class="todo-item">Meeting</NesButton>
-            
       </NesContainer>
   </section>
 </template>
@@ -47,6 +46,7 @@ export default {
     transform: translateX(12.5%);
     background-color: white;
     color: black;
+    padding-bottom: 50px;
 }
 
 .todo-item {
