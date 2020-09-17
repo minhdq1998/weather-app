@@ -1,19 +1,20 @@
 <template>
     <section id="timer">
         <Header header="Pomodoro Timer" color="#87CEEB" />
-        <div class="centralize-content" >
+        <CentralizedContainer>
             <NesButton class="timer-mode-button" @click="change_mode('pomodoro')"   :primary="is_active('pomodoro')">Pomodoro</NesButton>
             <NesButton class="timer-mode-button" @click="change_mode('shortbreak')" :primary="is_active('shortbreak')">Short Break</NesButton>
             <NesButton class="timer-mode-button" @click="change_mode('longbreak')"  :primary="is_active('longbreak')">Long Break</NesButton>
             <Timer :mins=25 :active="mode == 'pomodoro'"   />
             <Timer :mins=5  :active="mode == 'shortbreak'" />
             <Timer :mins=10 :active="mode == 'longbreak'"  />
-        </div>
+        </CentralizedContainer>
     </section>
 </template>
 
 <script>
 import Header from './../common/Header'
+import CentralizedContainer from './../common/CentralizedContainer'
 import Timer from './../timer-page/sub-components/Timer'
 import { NesButton } from 'vuenes.css'
 
@@ -22,7 +23,8 @@ export default {
     components: {
         Header,
         Timer,
-        NesButton
+        NesButton,
+        CentralizedContainer
     },
     data: () => ({
         mode: "pomodoro"
@@ -46,15 +48,6 @@ export default {
     background-color: #32444b;
     position: relative;
     font-size: 16px;
-}
-
-.centralize-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 600px;
 }
 
 .retro-container {

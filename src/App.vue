@@ -7,6 +7,7 @@
       <WeatherPage/>
       <TimerPage/>
       <AboutPage/>
+      <TestPage/>
     </div>
     <div class="paging-but">
         <div><NesButton @click="move_to(up(page))">↑</NesButton></div>
@@ -20,6 +21,8 @@ import { default as MenuPage } from './components/menu-page/Main'
 import { default as WeatherPage } from './components/weather-page/Main';
 import { default as TimerPage } from './components/timer-page/Main';
 import { default as AboutPage } from './components/about-page/Main'
+import { default as TestPage } from './components/test-page/Main'
+
 
 import Clock from './components/common/Clock'
 import Observer from './components/common/Observer'
@@ -37,7 +40,8 @@ export default {
     AboutPage,
     NesButton,
     Clock,
-    Observer
+    Observer,
+    TestPage
   },
   mixins: [pagingMixin],
   data: () => ({
