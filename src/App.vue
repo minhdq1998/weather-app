@@ -21,6 +21,7 @@ import { default as WeatherPage } from './components/weather-page/Main';
 import { default as TimerPage } from './components/timer-page/Main';
 import { default as AboutPage } from './components/about-page/Main'
 
+
 import Clock from './components/common/Clock'
 import Observer from './components/common/Observer'
 import { NesButton } from 'vuenes.css'
@@ -37,7 +38,7 @@ export default {
     AboutPage,
     NesButton,
     Clock,
-    Observer
+    Observer,
   },
   mixins: [pagingMixin],
   data: () => ({

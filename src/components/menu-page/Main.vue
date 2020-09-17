@@ -1,20 +1,20 @@
 <template>
     <section id="menu">
         <Header header="Menu" />
-        <div class="centralize-content">
+        <CentralizedContainer class="content-container">
             <NesContainer title="Menu" center>
-                <div><NesButton class="menu-button" @click="move_to('weather')">Weather</NesButton></div>
-                <div><NesButton class="menu-button" @click="move_to('timer')">Timer</NesButton></div>
-                <div><NesButton class="menu-button" @click="move_to('about')">About</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('weather')" >Weather</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('timer')"   >Timer</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('about')"   >About</NesButton></div>
             </NesContainer>
-        </div>
+        </CentralizedContainer>
     </section>
 </template>
 
 <script>
 import Header from './../common/Header'
+import CentralizedContainer from './../common/CentralizedContainer'
 import { NesContainer, NesButton } from 'vuenes.css' 
-
 import pagingMixin from '../../mixins/pagingMixn'
 
 export default {
@@ -22,7 +22,8 @@ export default {
     components: {
         Header,
         NesContainer,
-        NesButton
+        NesButton,
+        CentralizedContainer
     },
     mixins: [pagingMixin]
 }
@@ -35,15 +36,9 @@ export default {
     position: relative;
 }
 
-.centralize-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 600px;
-    background-color: white;
+.content-container {
     color: black;
+    background-color: white;
 }
 
 .menu-button {

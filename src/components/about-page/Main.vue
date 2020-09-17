@@ -1,15 +1,17 @@
 <template>
   <section id="about">
         <Header header='About' />
-        <div class="centralize-content ">
-          <NesBalloonLeftItem  class="about-chatbox ab-chatbox-left" message='What it this all about ?' />
-          <NesBalloonRightItem class="about-chatbox ab-chatbox-right" message='Just a fun app to look at :D' />
-        </div>
+        <CentralizedContainer>
+            <NesBalloonLeftItem  class="about-chatbox ab-chatbox-left" message='What it this all about ?' />
+            <NesBalloonRightItem class="about-chatbox ab-chatbox-right" message='Just a fun app to look at :D' />
+        </CentralizedContainer>
   </section>
 </template>
 
 <script>
 import Header from './../common/Header'
+import CentralizedContainer from './../common/CentralizedContainer'
+
 import { NesBalloonLeftItem, NesBalloonRightItem } from 'vuenes.css'
 
 export default {
@@ -17,7 +19,8 @@ export default {
     components: {
         Header,
         NesBalloonLeftItem,
-        NesBalloonRightItem
+        NesBalloonRightItem,
+        CentralizedContainer
     }
 }
 </script>
@@ -42,15 +45,5 @@ export default {
     width: 100%;
     padding-left: 100px;
 }
-
-.centralize-content {
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 70%;
-    max-width: 100%;
-    transform: translate(-50%,-50%);
-}
-
 
 </style>
