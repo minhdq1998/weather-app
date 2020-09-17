@@ -38,7 +38,6 @@ export default {
     padding-right: 100px;
 }
 
-
 .ab-chatbox-right {
     width: 100%;
     padding-left: 100px;
