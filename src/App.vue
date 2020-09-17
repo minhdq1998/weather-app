@@ -1,38 +1,73 @@
 <template>
   <div id="app">
     <Clock />
-    <WeatherPage/>
-    <TimerPage/>
+    <div class="container">
+      <Observer/>
+      <MenuPage/>
+      <WeatherPage/>
+      <TimerPage/>
+      <AboutPage/>
+    </div>
     <div class="paging-but">
-        <div><NesButton @click="move_to('#weather')">↑</NesButton></div>
-        <div><NesButton @click="move_to('#timer')">↓</NesButton></div>
+        <div><NesButton @click="move_to(up(page))">↑</NesButton></div>
+        <div><NesButton @click="move_to(down(page))">↓</NesButton></div>
     </div>
   </div>
 </template>
 
 <script>
-import Clock from './components/common/Clock'
+import { default as MenuPage } from './components/menu-page/Main'
 import { default as WeatherPage } from './components/weather-page/Main';
 import { default as TimerPage } from './components/timer-page/Main';
+import { default as AboutPage } from './components/about-page/Main'
+
+import Clock from './components/common/Clock'
+import Observer from './components/common/Observer'
 import { NesButton } from 'vuenes.css'
+
+import pagingMixin from './mixins/pagingMixn'
+import { bus } from './main'
 
 export default {
   name: 'App',
   components: {
+    MenuPage,
     WeatherPage,
     TimerPage,
+    AboutPage,
     NesButton,
-    Clock
+    Clock,
+    Observer
   },
+  mixins: [pagingMixin],
   data: () => ({
-    default_url: ""
+    default_url: "",
+    page: "#menu",
+    pages: [
+      'menu',
+      'weather',
+      'timer',
+      'about'
+    ]
   }),
   created() {
-    this.default_url = window.location.origin + window.location.pathname
+    bus.$on('switch_page',(id) => this.page=id )
   },
   methods: {
-    move_to(id) {
-      window.location.href = this.default_url + id
+    up(page) {
+      let index = this.index_of(page)
+      if (index == 0) return this.pages[index]
+      else return this.pages[index-1]
+    },
+    down(page) {
+      let index = this.index_of(page)
+      if (index == this.pages.length - 1) return this.pages[index]
+      else return this.pages[index+1]
+    },
+    index_of(page) {
+      for (var i = 0; i < this.pages.length; i++) {
+        if (page == this.pages[i]) return i
+      }
     }
   }
 }
