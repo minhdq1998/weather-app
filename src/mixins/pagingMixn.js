@@ -6,7 +6,8 @@ export default {
     },
     methods: {
         move_to(id) {
-            window.location.href = this.default_url + id
+            console.log(id)
+            window.location.href = this.default_url + '#' + id
             bus.$emit("switch_page", id)
         }
     }

@@ -8,8 +8,8 @@
       <TimerPage/>
     </div>
     <div class="paging-but">
-        <div><NesButton @click="move_to('#weather')">↑</NesButton></div>
-        <div><NesButton @click="move_to('#timer')">↓</NesButton></div>
+        <div><NesButton @click="move_to(up(page))">↑</NesButton></div>
+        <div><NesButton @click="move_to(down(page))">↓</NesButton></div>
     </div>
   </div>
 </template>
@@ -39,10 +39,32 @@ export default {
   mixins: [pagingMixin],
   data: () => ({
     default_url: "",
-    page: "#menu"
+    page: "#menu",
+    pages: [
+      'menu',
+      'weather',
+      'timer'
+    ]
   }),
   created() {
-    bus.$on('switch_page',(id) => this.page="#"+id )
+    bus.$on('switch_page',(id) => this.page=id )
+  },
+  methods: {
+    up(page) {
+      let index = this.index_of(page)
+      if (index == 0) return this.pages[index]
+      else return this.pages[index-1]
+    },
+    down(page) {
+      let index = this.index_of(page)
+      if (index == this.pages.length - 1) return this.pages[index]
+      else return this.pages[index+1]
+    },
+    index_of(page) {
+      for (var i = 0; i < this.pages.length; i++) {
+        if (page == this.pages[i]) return i
+      }
+    }
   }
 }
 </script>
