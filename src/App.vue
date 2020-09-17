@@ -5,6 +5,7 @@
       <Observer/>
       <MenuPage/>
       <WeatherPage/>
+      <TodoPage />
       <TimerPage/>
       <AboutPage/>
     </div>
@@ -17,9 +18,10 @@
 
 <script>
 import { default as MenuPage } from './components/menu-page/Main'
-import { default as WeatherPage } from './components/weather-page/Main';
-import { default as TimerPage } from './components/timer-page/Main';
+import { default as WeatherPage } from './components/weather-page/Main'
+import { default as TimerPage } from './components/timer-page/Main'
 import { default as AboutPage } from './components/about-page/Main'
+import { default as TodoPage } from './components/todo-page/Main'
 
 
 import Clock from './components/common/Clock'
@@ -34,6 +36,7 @@ export default {
   components: {
     MenuPage,
     WeatherPage,
+    TodoPage,
     TimerPage,
     AboutPage,
     NesButton,
@@ -47,6 +50,7 @@ export default {
     pages: [
       'menu',
       'weather',
+      'todo',
       'timer',
       'about'
     ]

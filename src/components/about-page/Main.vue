@@ -1,6 +1,6 @@
 <template>
   <section id="about">
-        <Header header='About' />
+        <Header header='About' color="black" />
         <CentralizedContainer>
             <NesBalloonLeftItem  class="about-chatbox ab-chatbox-left" message='What it this all about ?' />
             <NesBalloonRightItem class="about-chatbox ab-chatbox-right" message='Just a fun app to look at :D' />

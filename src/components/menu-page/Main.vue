@@ -1,9 +1,10 @@
 <template>
     <section id="menu">
-        <Header header="Menu" />
+        <Header header="Menu" color="#0000ff" />
         <CentralizedContainer class="content-container">
             <NesContainer title="Menu" center>
                 <div><NesButton class="menu-button" @click="move_to('weather')" >Weather</NesButton></div>
+                <div><NesButton class="menu-button" @click="move_to('todo')"   >Todo</NesButton></div>
                 <div><NesButton class="menu-button" @click="move_to('timer')"   >Timer</NesButton></div>
                 <div><NesButton class="menu-button" @click="move_to('about')"   >About</NesButton></div>
             </NesContainer>
